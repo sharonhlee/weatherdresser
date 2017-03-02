@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Weather Dresser</title>
+    
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <script src="../overlayjs/modernizr.custom.js"></script>
+
+</head>
+
+<body id="page-top">
+
+	<!-- putting the script in the body because in this case, I want the information taken from the script to load before the content, since it makes up the content...right?? -->
+
+    <!-- NAVBAR -->
+    <header id="header" class="header-section section navbar navbar-default header-floating" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#smallNavbar" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" height="150" width="150"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="smallNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" id="trigger-overlay" type="button">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trends<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./sp.html">Spring</a></li>
+                            <li><a href="./su.html">Summer</a></li>
+                            <li><a href="./fa.html">Fall</a></li>
+                            <li><a href="./wi.html">Winter</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Dress Me/dressme.html">Dress Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- END NAVBAR -->
+	
+	<div id="reportimg">
+        <h1>Summer Trend :<br>Crop Tops</h1>
+        <h4>There's always a way to a rock a good crop top. Either on a casual beach day or even a formal event, this piece can be worn up or down. No need to be modest, show some skin! It'll help with the sweltering summer heat!</h4>
+        <img src="../img/summerreport.jpg">
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script type="text/javascript">
+//wait for DOM and page to fully load and then execute all of the code within these brackets
+    $(document).ready(function(){
+        var $bg=$("#bg");
+        //var bg=document.getElementById("bg"); <-- same as the line o code above
+        
+        var $h1=$("h1");
+        $text=$("h4"),
+        $reportimg=$(".reportimg");
+
+        //set initial perspective
+        CSSPlugin.defaultTransformPerspective=800;
+
+        var tl= new TimelineLite();
+
+        tl.from($bg, 0.8,{opacity:0})
+        .from($h1,1,{top:50,opacity:0})
+        .from($text,1,{top:50,opacity:0},"+=1.0")
+        .from($reportimg,tl.duration(),{scaleX:0,transformOrigin:"top",ease:Linear.easeNone},0)
+        .to($reportimg,0.5,{opacity:0,top:-8});
+    });
+</script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <div class="overlay overlay-slidedown">
+    <button type="button" class="overlay-close">Close</button>
+    	<p>Ever have one of those days where you compose a bomb-ass, masterpiece of an outfit, but end up paying for it because you're seemingly incapable of comprehending what weather is? Don't be that friend complaining about always being overdressed or underdressed. No more begging to a borrow a sweater. No more embarrassing, sweaty pit stains. It's time to be practical, but we can still look cute and fashion-forward while we're at it!
+    	<br><br>
+    	Weather Dresser is the perfect stylist for you when it comes to be stylish, clean, and comfortable! It's intuitive, smart fashion.</p>
+	</div>
+	<script src="../overlayjs/classie.js"></script>
+	<script src="../overlayjs/demo1.js"></script>
+</body>
+
+</html>
